@@ -1,8 +1,8 @@
 {
   "name": "transenv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Transform ENV into js object",
-  "main": "index.js",
+  "main": "dist/transenv.js",
   "repository": "git@github.com:vacuumlabs/transenv.git",
   "author": "Samuel Hapák <samuel.hapak@gmail.com>",
   "license": "Unlicense",
