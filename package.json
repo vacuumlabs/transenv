@@ -8,11 +8,11 @@
   "license": "Unlicense",
   "scripts": {
     "eslint": "eslint src/**/*.js",
-    "build": "babel src/index.js -o dist/transenv.js",
+    "build": "mkdir --parents dist && babel src/index.js -o dist/transenv.js",
     "prepublish": "yarn run build"
   },
   "dependencies": {
-    "dotenv": "^2.0.0"
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
