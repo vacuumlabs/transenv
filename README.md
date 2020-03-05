@@ -44,8 +44,10 @@ console.log(config)
 
 ## API
 
-### `transenv(env?)(fn({str, num, bool}))`
+### `transenv({env, path, debug, encoding} = {})(fn({str, num, bool}))`
 The optional argument `env` can be used in a place of `process.env`. If the `env` is not specified and the `NODE_ENV` is not set to the `"production"`, the `.env` file is loaded and merged with the actual `process.env` content. The content of `.env` is ignored in the production mode (`NODE_ENV==="production"`).
+
+Other parameters are [dotenv options](https://github.com/motdotla/dotenv#options) and will be propagated.
 
 The return value of `transenv(env?)` is a transformation function providing `fn` with helpers `{str, num, bool}`. The result of calling `transenv(env)(fn)` is the `fn({str, num, bool})`.
 

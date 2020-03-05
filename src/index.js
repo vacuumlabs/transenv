@@ -1,8 +1,10 @@
 import dotenv from 'dotenv'
 
-export default (env) => {
+export default ({env, path, debug, encoding} = {}) => {
   if (env == null) {
-    if (process.env['NODE_ENV'] !== 'production') dotenv.config({silent: true})
+    if (process.env['NODE_ENV'] !== 'production') {
+      dotenv.config({path, debug, encoding})
+    }
     env = process.env
   }
 
@@ -22,7 +24,7 @@ export default (env) => {
   }
 
   const _str2bool = (str, key) => {
-    const val = {'true': true, 'false': false}[str]
+    const val = {true: true, false: false}[str]
     if (val == null) {
       errors.push(`Boolean ${key} has non-boolean value: ${str}.`)
     } else return val
@@ -36,5 +38,4 @@ export default (env) => {
     if (errors.length > 0) throw new Error(errors.join('\n'))
     else return result
   }
-
 }
